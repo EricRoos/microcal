@@ -1,0 +1,14 @@
+<% date = @line_item.date %>
+
+<%= turbo_stream.remove dom_id(@line_item) %>
+
+<%= turbo_stream.append @line_item.date.to_s do %>
+  <%= turbo_frame_tag dom_id(@line_item), target: 'info-panel', class: "" do %>
+    <%= render LineItemComponent.new(line_item: @line_item) %>
+  <% end %>
+  <%= render NewLineItemComponent.new(date: date) %>
+<% end %>
+
+<%= turbo_stream.update 'points' do %>
+  <%= render PointsDisplayComponent.new(points: current_user.points, animated: true) %>
+<% end %>

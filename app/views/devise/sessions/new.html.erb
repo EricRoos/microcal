@@ -1,0 +1,29 @@
+<div class="h-full flex items-center justify-center bg-[url('bg.JPG')]">
+  <div class='bg-white p-4 drop-shadow-lg rounded w-full flex justify-center'>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'grid gap-4'}, data: { turbo: false } ) do |f| %>
+      <div class='text-center text-3xl'>Microcal</div>
+      <hr class='my-3' />
+      <div class="field">
+        <%= f.label :username%><br />
+        <%= f.text_field :username, autofocus: true  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<aside data-controller='aside' aria-label='info-panel' class='fixed z-20 w-full h-full top-0 right-0 w-full'>
+  <div class='w-full h-full left-0 bg-black opacity-75'>
+  </div>
+  <div class="rounded-t-xl w-full h-1/2 absolute bottom-0 bg-white drop-shadow-2xl p-2 border-l border-solid <%= animated_class %>">
+    <div class='flex items-center justify-center h-10'>
+      <button data-action='click->aside#close'><%= heroicon('arrow-down-circle', options: { class: 'text-gray-500 h-6 w-6' }) %></button>
+    </div>
+    <hr class='my-3'/>
+    <div>
+      <%= content %>
+    </div>
+  </div>
+</aside>

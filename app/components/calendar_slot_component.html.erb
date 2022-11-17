@@ -1,0 +1,8 @@
+<div>
+  <div class='<%= header_class %>'>
+    <span><%= title %></span>
+    <span class='text-gray-500 <%= Date.today == @props.date ? 'text-blue-500' : '' %>'><%= subtitle %></span>
+  </div>
+  <%= content %>
+  <%= render NewLineItemComponent.new(date: @props.date) %>
+</div>

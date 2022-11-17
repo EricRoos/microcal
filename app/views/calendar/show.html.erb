@@ -1,0 +1,24 @@
+<div class='sticky top-0 bg-white my-4 z-10 py-4'>
+  <div class='flex justify-between items-center'>
+    <div class='font-bold text-xl'>
+      <%= @dates[0].strftime('%B') %>
+    </div>
+    <div class='flex gap-4 items-center'>
+      <%= turbo_frame_tag 'points' do %>
+        <%= render PointsDisplayComponent.new(points: current_user.points, animated: false) %>
+      <% end %>
+      <%= button_to destroy_user_session_path, method: :delete, data: { turbo: false } do %>
+        <%= heroicon 'arrow-left-on-rectangle', options: { class: 'h-6 w-6 text-gray-500' } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= turbo_frame_tag 'line_items', src: line_items_path(dates: @dates), class: 'w-full' do %>
+  <% @dates.each do |date|%>
+    <%= render CalendarSlotComponent.new(date: date) do %>
+      <div role="status" class="my-3 animate-pulse hidden" data-controller='delayed-show'>
+        <div class="h-2 bg-gray-300 rounded-full dark:bg-gray-700 max-w-[640px] mb-2.5 mx-auto"></div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

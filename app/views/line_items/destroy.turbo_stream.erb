@@ -1,0 +1,4 @@
+<%= turbo_stream.remove dom_id(@line_item) %>
+<%= turbo_stream.update 'info-panel' do %>
+  <%= render AsideComponent.new(slide_out: true) %>
+<% end %>

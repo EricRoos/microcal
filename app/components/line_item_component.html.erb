@@ -1,0 +1,15 @@
+<%= turbo_frame_tag dom_id(line_item), class: "overflow-hidden flex items-center h-10 border-solid border-b #{line_item.completed ? 'line-through text-gray-300' : ''}", data: { controller: 'line-item' } do %>
+  <a href='<%= edit_line_item_path(line_item.id) %>' class='whitespace-nowrap w-4/5 overflow-hidden text-ellipsis flex-shrink pr-2' data-turbo-frame='info-panel'>
+    <%= line_item.text %>
+  </a>
+  <%= button_to line_item_path(line_item.id, aside: false, line_item: { completed: !line_item.completed }), method: :put, form: { class: 'ml-auto'} do %>
+    <%= heroicon 'check-circle', variant: line_item.completed ? 'solid' : 'outline', options: { class: 'h-4 w-4' } %>
+  <% end %>
+  <div class='hidden relative' data-line-item-target='deletePanel'>
+    <div class='absolute top-0 right-0 h-10 -translate-y-2/4 min-w-[50vw] box-shadow-lg'>
+      <div class='hidden rounded-l-lg text-white bg-red-500 w-full h-full px-4 flex items-center animate__animated'>
+        Delete
+      </div>
+    </div>
+  </div>
+<% end %>

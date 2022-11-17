@@ -1,0 +1,46 @@
+<div class="relative">
+  <div class="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+    <%= form_with model: @props.line_item, data: { 'new-line-item-target': 'form', controller: 'new-line-item' } do |f| %>
+      <label for="title" class="sr-only">Title</label>
+      <%= f.text_field :text, class: "block w-full border-0 pt-2.5 text-lg font-medium placeholder-gray-500 focus:ring-0", data: { action: 'blur->new-line-item#submitForm' } %>
+      <label for="description" class="sr-only">Description</label>
+      <%= f.text_area :description, rows: "2", class: "block w-full resize-none border-0 py-0 placeholder-gray-500 focus:ring-0 sm:text-sm", placeholder: "Write a description...", data: { action: 'blur->new-line-item#submitForm' } %>
+    <% end %>
+
+    <!-- Spacer element to match the height of the toolbar -->
+    <div aria-hidden="true">
+      <div class="py-2">
+        <div class="h-9"></div>
+      </div>
+      <div class="h-px"></div>
+      <div class="py-2">
+        <div class="py-px">
+          <div class="h-9"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute inset-x-px bottom-0">
+    <!-- Actions: These are just examples to demonstrate the concept, replace/wire these up however makes sense for your project. -->
+    <div class="flex flex-nowrap justify-end space-x-2 py-2 px-2 sm:px-3">
+      <div class="flex-shrink-0">
+        <label id="listbox-label" class="sr-only"> Add a due date </label>
+        <div class="relative">
+          <%= button_to line_item_path(@props.line_item, line_item: { completed: !@props.line_item.completed }), method: :put, class: "relative inline-flex items-center whitespace-nowrap rounded-full #{ @props.line_item.completed ? 'bg-green-500' : '' } py-2 px-2 text-sm font-medium sm:px-3" do %>
+            <%= heroicon 'check', options: { class: "h-4 w-4 #{@props.line_item.completed ? 'font-bold text-white' : '' }" } %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0">
+        <label id="listbox-label" class="sr-only"> Add a due date </label>
+        <div class="relative">
+          <%= button_to line_item_path(@props.line_item), method: :delete, class: "text-red-700 relative inline-flex items-center whitespace-nowrap rounded-full bg-gray-50 py-2 px-2 text-sm font-medium text-gray-500 hover:bg-gray-100 sm:px-3" do %>
+            <%= heroicon 'trash', options: { class: 'h-4 w-4' } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

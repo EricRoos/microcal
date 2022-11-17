@@ -1,0 +1,32 @@
+<div class="h-full flex items-center justify-center bg-[url('bg.JPG')]">
+  <div class='bg-white p-4 drop-shadow-xl rounded-lg w-full flex justify-center'>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: { class: 'grid gap-4'}) do |f| %>
+      <div class='text-center text-3xl'>Microcal</div>
+      <hr class='my-3' />
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

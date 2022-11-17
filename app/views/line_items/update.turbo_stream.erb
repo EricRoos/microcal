@@ -1,0 +1,19 @@
+<%= turbo_stream.update dom_id(@line_item) do %>
+  <%= render LineItemComponent.new(line_item: @line_item) %>
+<% end %>
+
+<% unless params[:aside] == 'false' %>
+  <%= turbo_stream.update 'info-panel' do %>
+    <%= render AsideComponent.new(slide_in: false) do %>
+      <%= render LineItemFormComponent.new(line_item: @line_item) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if flash.notice %>
+  <%= turbo_stream.update 'flash_notice' do %>
+    <%= render AlertComponent.new do %>
+      <%= flash.notice %>
+    <% end %>
+  <% end %>
+<% end %>

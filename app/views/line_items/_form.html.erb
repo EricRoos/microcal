@@ -1,0 +1,5 @@
+<%= form_with model: @line_item do |f| %>
+  <div class='grid'>
+    <%= f.text_area :text, data: { action: 'blur->new-line-item#submitForm', 'controller': 'new-line-item'} %>
+  </div>
+<% end %>

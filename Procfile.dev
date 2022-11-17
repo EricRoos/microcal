@@ -1,0 +1,2 @@
+web: bundle exec guard -i
+css: bin/rails tailwindcss:watch

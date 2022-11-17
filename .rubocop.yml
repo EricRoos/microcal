@@ -1,0 +1,18 @@
+AllCops:
+        NewCops: enable
+        SuggestExtensions: false
+        Exclude:
+                - './bin/**/*'
+                - './config/**/*'
+                - './db/**/*'
+                - './app/admin/**/*'
+                - './vendor/**/*'
+                - 'Guardfile'
+Style/Documentation:
+        Enabled: false
+Metrics/BlockLength:
+        Exclude:
+                - './spec/**/*'
+                - './app/models/state_machine/**/*'
+Metrics/MethodLength:
+        Max: 15
