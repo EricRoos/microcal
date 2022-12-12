@@ -8,7 +8,9 @@
   <div class='hidden relative' data-line-item-target='deletePanel'>
     <div class='absolute top-0 right-0 h-10 -translate-y-2/4 min-w-[50vw] box-shadow-lg'>
       <div class='hidden rounded-l-lg text-white bg-red-500 w-full h-full px-4 flex items-center animate__animated'>
-        Delete
+        <%= button_to line_item_path(line_item, aside: false), method: :delete, class: "" do %>
+          Delete
+        <% end %>
       </div>
     </div>
   </div>
