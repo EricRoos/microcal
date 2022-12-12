@@ -99,3 +99,5 @@ gem 'dry-types', '~> 1.7'
 gem 'brakeman', '~> 5.4', group: :development
 
 gem 'bundler-audit', '~> 0.9.1', group: :development
+
+gem 'pundit', '~> 2.2'
