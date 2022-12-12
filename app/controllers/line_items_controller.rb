@@ -3,7 +3,7 @@
 class LineItemsController < ApplicationController
   def index
     authorize LineItem
-    @slots = current_user.line_items.where(date: params[:dates]).to_a.group_by(&:date)
+    @slots = policy_scope(LineItem).where(date: params[:dates]).to_a.group_by(&:date)
     @slots = params[:dates].to_h { |d| [Date.parse(d), []] }.merge(@slots)
   end
 
