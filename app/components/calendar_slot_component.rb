@@ -29,7 +29,7 @@ class CalendarSlotComponent < ViewComponent::Base
 
   def header_class
     # rubocop:disable Layout/LineLength
-    "py-2 font-bold text-lg border-0 border-b-2 border-solid border-black flex justify-between #{Date.today == @props.date ? 'text-blue-500' : ''}"
+    "py-2 font-bold text-lg border-0 border-b-2 border-solid border-black flex justify-between #{Time.now.to_date == @props.date ? 'text-blue-500' : ''}"
     # rubocop:enable Layout/LineLength
   end
 end
