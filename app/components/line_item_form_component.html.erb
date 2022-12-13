@@ -24,9 +24,9 @@
   <div class="absolute inset-x-px bottom-0">
     <!-- Actions: These are just examples to demonstrate the concept, replace/wire these up however makes sense for your project. -->
     <div class="flex flex-nowrap justify-end space-x-2 py-2 px-2 sm:px-3">
-      <div class='mr-auto'>
+      <div class='mr-auto text-sm'>
         <%= form_with model: @props.line_item, data: { 'new-line-item-target': 'form', controller: 'new-line-item' } do |f| %>
-          <%= f.number_field :time_to_complete_minutes, class: "w-20", min: 0, max: 180, data: { action: 'blur->new-line-item#submitForm' } %> minutes
+          <%= f.number_field :time_to_complete_minutes, class: "text-sm w-20", min: 0, max: 180, data: { action: 'blur->new-line-item#submitForm' } %> minutes
         <% end %>
       </div>
       <div class="flex-shrink-0">
