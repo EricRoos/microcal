@@ -1,4 +1,4 @@
-<%= turbo_frame_tag dom_id(line_item), class: "overflow-hidden flex items-center h-10 border-solid border-b #{line_item.completed ? 'line-through text-gray-300' : ''}", data: { controller: 'line-item' } do %>
+<%= turbo_frame_tag dom_id(line_item), class: "overflow-hidden flex items-center h-10 border-solid border-b #{line_item.completed ? 'line-through text-gray-300' : ''}", data: { controller: 'line-item', 'line-item-id': line_item.id }, draggable: 'true' do %>
   <a href='<%= edit_line_item_path(line_item.id) %>' class='whitespace-nowrap w-4/5 overflow-hidden text-ellipsis flex-shrink pr-2' data-turbo-frame='info-panel'>
     <% if line_item.time_to_complete_minutes.present? %>
       <span class='px-2 py bg-gray-100 text-sm rounded'><%=line_item.time_to_complete_minutes%>m</span>

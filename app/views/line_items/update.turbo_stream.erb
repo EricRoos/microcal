@@ -1,5 +1,16 @@
-<%= turbo_stream.update dom_id(@line_item) do %>
-  <%= render LineItemComponent.new(line_item: @line_item) %>
+<% if @line_item.date_previously_changed? %>
+  <%= turbo_stream.remove request.headers['Turbo-Frame'] %>
+  <%= turbo_stream.remove dom_id(@line_item) %>
+  <%= turbo_stream.append @line_item.date.to_s do %>
+    <%= turbo_frame_tag dom_id(@line_item), target: 'info-panel', class: "" do %>
+      <%= render LineItemComponent.new(line_item: @line_item) %>
+    <% end %>
+    <%= render NewLineItemComponent.new(date: @line_item.date) %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.update dom_id(@line_item) do %>
+    <%= render LineItemComponent.new(line_item: @line_item) %>
+  <% end %>
 <% end %>
 
 <% unless params[:aside] == 'false' %>

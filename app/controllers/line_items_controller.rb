@@ -26,7 +26,6 @@ class LineItemsController < ApplicationController
     authorize @line_item
     @line_item.assign_attributes(update_line_item_params)
     flash.now.notice = 'Updated' if @line_item.changed? && @line_item.save
-    @line_item.reload if @line_item.errors
   end
 
   def destroy
@@ -43,6 +42,6 @@ class LineItemsController < ApplicationController
   end
 
   def update_line_item_params
-    params.require(:line_item).permit(:text, :completed, :description, :time_to_complete_minutes)
+    params.require(:line_item).permit(:text, :completed, :description, :time_to_complete_minutes, :date)
   end
 end
