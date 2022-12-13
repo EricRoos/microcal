@@ -1,7 +1,7 @@
 <div>
   <div class='<%= header_class %>'>
     <span><%= title %></span>
-    <span class='text-gray-500 <%= Date.today == @props.date ? 'text-blue-500' : '' %>'><%= subtitle %></span>
+    <span class='text-gray-500 <%= Time.now.in_time_zone.to_date == @props.date ? 'text-blue-500' : '' %>'><%= subtitle %></span>
   </div>
   <%= content %>
   <%= render NewLineItemComponent.new(date: @props.date) %>
