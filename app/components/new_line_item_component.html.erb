@@ -1,9 +1,12 @@
 <% line_item = ::LineItem.new(id: SecureRandom.uuid, date: @props.date) %>
 <%= turbo_frame_tag dom_id(line_item), class: "flex justify-between items-center border-solid border-b border-gray-100", data: { controller: 'new-line-item'} do %>
+  <%= form_with model: line_item, method: :put, class: 'hidden', data: { 'new-line-item-target': 'dropform' } do |f| %>
+    <%= f.hidden_field :date %>
+  <% end %>
   <%= form_with model: line_item, html: { disabled: true}, data: { 'new-line-item-target': 'form' } do |f| %>
     <%= f.hidden_field :date %>
     <%= f.hidden_field :id %>
-    <%= f.text_field :text, data: { action: 'blur->new-line-item#submitForm'}, class: 'border-0 px-0 focus:px-2 focus:text-lg focus:border-b-0 focus:ring-0 focus:outline-none focus:drop-shadow-xl bg-white w-full', minlength:'1', maxlength: '128', required: true %>
+    <%= f.text_field :text, data: { action: 'blur->new-line-item#submitForm', 'new-line-item-target': 'input'}, class: 'border-0 px-0 focus:px-2 focus:text-lg focus:border-b-0 focus:ring-0 focus:outline-none focus:drop-shadow-xl bg-white w-full', minlength:'1', maxlength: '128', required: true %>
   <% end %>
   <div class='hidden' data-new-line-item-target='loader'>
     <div class='flex items-center justify-center'>

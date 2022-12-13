@@ -22,5 +22,9 @@ export default class extends Controller {
       actualPanel.classList.remove('animate__slideInRight');
       actualPanel.classList.add('animate__slideOutRight');
     })
+
+    this.element.addEventListener('dragstart', (ev) => {
+      ev.dataTransfer.setData("id", this.element.getAttribute('data-line-item-id'));
+    });
   }
 }
