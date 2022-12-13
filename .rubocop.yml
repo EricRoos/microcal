@@ -16,3 +16,5 @@ Metrics/BlockLength:
                 - './app/models/state_machine/**/*'
 Metrics/MethodLength:
         Max: 15
+Style/RedundantFetchBlock:
+        Enabled: false
