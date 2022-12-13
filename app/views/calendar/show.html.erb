@@ -13,7 +13,7 @@
     </div>
   </div>
 </div>
-<%= turbo_frame_tag 'line_items', src: line_items_path(dates: @dates), class: 'w-full' do %>
+<%= turbo_frame_tag 'line_items', src: line_items_path(dates: @dates), class: 'w-full', loading: "lazy" do %>
   <% @dates.each do |date|%>
     <%= render CalendarSlotComponent.new(date: date) do %>
       <div role="status" class="my-3 animate-pulse hidden" data-controller='delayed-show'>

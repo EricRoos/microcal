@@ -9,3 +9,7 @@ PullToRefresh.init({
     window.location.reload();
   }
 });
+
+document.addEventListener('turbo:before-fetch-request', async (event) => {
+  event.detail.fetchOptions.headers['X-TimeZone'] = Intl.DateTimeFormat().resolvedOptions().timeZone;
+})
