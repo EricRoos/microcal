@@ -19,7 +19,7 @@
 
   <body class=''>
     <%= turbo_frame_tag 'flash_notice', class: 'w-full flex justify-center mb-2 fixed z-50 top-[50px]' %>
-    <main class='px-8'>
+    <main class='px-4 md:px-8'>
       <%= yield %>
     </main>
     <%= turbo_frame_tag 'info-panel', data: { controller: 'aside' } %>
