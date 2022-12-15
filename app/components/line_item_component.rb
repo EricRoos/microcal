@@ -15,6 +15,8 @@ class LineItemComponent < ViewComponent::Base
 
   def time_color
     time = line_item.time_to_complete_minutes
+    return 'transparent' if line_item.completed?
+
     case time
     when (0..60)
       'bg-gray-300'
