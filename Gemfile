@@ -87,6 +87,7 @@ gem 'capistrano3-puma', '~> 5.2', group: :development
 gem 'capistrano-rails', '~> 1.6', group: :development, require: false
 gem 'capistrano-rbenv', '~> 2.2', group: :development
 gem 'nokogiri', '>= 1.13.10' # brakeman: CVE-2022-23476
+gem 'rails-html-sanitizer', '>= 1.4.4' # brakeman: CVE-2022-23519, CVE-2022-23518, CVE-2022-23517, and more
 
 gem 'lograge', '~> 0.12.0'
 
