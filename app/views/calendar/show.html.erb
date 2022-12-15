@@ -8,10 +8,10 @@
         <%= turbo_frame_tag 'points' do %>
           <%= render PointsDisplayComponent.new(points: current_user.points, animated: false) %>
         <% end %>
-        <%= button_to destroy_user_session_path, method: :delete, data: { turbo: false } do %>
-          <%= heroicon 'arrow-left-on-rectangle', options: { class: 'h-6 w-6 text-gray-500' } %>
-        <% end %>
       </div>
+    <% end %>
+    <%= button_to destroy_user_session_path, method: :delete, data: { turbo: false } do %>
+      <%= heroicon 'arrow-left-on-rectangle', options: { class: 'h-6 w-6 text-gray-500' } %>
     <% end %>
   </div>
 </div>
