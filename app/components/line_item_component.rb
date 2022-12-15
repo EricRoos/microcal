@@ -13,6 +13,18 @@ class LineItemComponent < ViewComponent::Base
     @props = Props.new(line_item:)
   end
 
+  def time_color
+    time = line_item.time_to_complete_minutes
+    case time
+    when (0..60)
+      'bg-gray-300'
+    when (61..180)
+      'bg-yellow-300'
+    else
+      'bg-red-500 text-white'
+    end
+  end
+
   def line_item
     @props.line_item
   end

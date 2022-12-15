@@ -6,7 +6,9 @@
       </span>
     <% end %>
     <% if line_item.time_to_complete_minutes.present? %>
-      <span class='px-2 py bg-gray-100 text-sm rounded'><%=line_item.time_to_complete_minutes%>m</span>
+      <span class="rounded-xl mr-2 px-3 p-2 <%= time_color %> text-sm rounded">
+        <%=line_item.time_to_complete_minutes%>m
+      </span>
     <% end %>
     <%= line_item.text %>
   </a>
