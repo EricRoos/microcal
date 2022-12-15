@@ -13,8 +13,9 @@
     </div>
   </div>
 </div>
-<%= turbo_frame_tag 'line_items', src: line_items_path(dates: @dates), class: 'w-full', loading: "lazy" do %>
-  <% @dates.each do |date|%>
+<% @dates.each do |date|%>
+  <%= turbo_frame_tag "line_items-#{date}", src: line_items_path(dates: [date]), class: 'w-full', loading: "lazy", data: { controller: 'refreshable-frame' } do %>
+    <% # default content for the lader, not real. check line_items index response %>
     <%= render CalendarSlotComponent.new(date: date) do %>
       <div role="status" class="my-3 animate-pulse hidden" data-controller='delayed-show'>
         <div class="h-2 bg-gray-300 rounded-full dark:bg-gray-700 max-w-[640px] mb-2.5 mx-auto"></div>
