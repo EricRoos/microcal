@@ -1,6 +1,9 @@
 <div>
   <div class='<%= header_class %>'>
-    <span><%= title %></span>
+    <div class='items-center gap-2 flex'>
+      <%= title %>
+      <button data-action='refreshable-frame#refresh'><%= heroicon 'arrow-path', options: { class: 'h-4 w-4'} %></button>
+    </div>
     <span class='text-gray-500 <%= Time.now.in_time_zone.to_date == @props.date ? 'text-blue-500' : '' %>'><%= subtitle %></span>
   </div>
   <%= content %>
