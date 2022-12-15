@@ -3,14 +3,16 @@
     <div class='font-bold text-xl'>
       <%= @dates[0].strftime('%B') %>
     </div>
-    <div class='flex gap-4 items-center'>
-      <%= turbo_frame_tag 'points' do %>
-        <%= render PointsDisplayComponent.new(points: current_user.points, animated: false) %>
-      <% end %>
-      <%= button_to destroy_user_session_path, method: :delete, data: { turbo: false } do %>
-        <%= heroicon 'arrow-left-on-rectangle', options: { class: 'h-6 w-6 text-gray-500' } %>
-      <% end %>
-    </div>
+    <% if points_enabled? %>
+      <div class='flex gap-4 items-center'>
+        <%= turbo_frame_tag 'points' do %>
+          <%= render PointsDisplayComponent.new(points: current_user.points, animated: false) %>
+        <% end %>
+        <%= button_to destroy_user_session_path, method: :delete, data: { turbo: false } do %>
+          <%= heroicon 'arrow-left-on-rectangle', options: { class: 'h-6 w-6 text-gray-500' } %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 <% @dates.each do |date|%>
