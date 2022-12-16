@@ -8,6 +8,7 @@ AllCops:
                 - './app/admin/**/*'
                 - './vendor/**/*'
                 - 'Guardfile'
+                - 'Gemfile.lock'
 Style/Documentation:
         Enabled: false
 Metrics/BlockLength:
