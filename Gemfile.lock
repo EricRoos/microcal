@@ -331,6 +331,11 @@ GEM
     ruby-progressbar (1.11.0)
     ruby_parser (3.19.2)
       sexp_processor (~> 4.16)
+    rubyzip (2.3.2)
+    selenium-webdriver (4.7.1)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     sexp_processor (4.16.1)
     shellany (0.0.1)
     sprockets (4.2.0)
@@ -367,6 +372,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -406,6 +412,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0)
   rubocop-rails (~> 2.17)
   rubocop-rspec (~> 2.15)
+  selenium-webdriver (~> 4.7)
   sprockets-rails
   stimulus-rails
   tailwindcss-rails (~> 2.0)
