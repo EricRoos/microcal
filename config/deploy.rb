@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:EricRoos/microcal.git"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/rails/deploy"
 set :puma_enable_socket_service, true
-set :rbenv_ruby, "3.1.0"
+set :rbenv_ruby, "3.2.0"
 
 
 # Default value for :format is :airbrussh.
