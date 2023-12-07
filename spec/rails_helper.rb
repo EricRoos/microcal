@@ -31,9 +31,20 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
+require 'capybara'
+Capybara.enable_aria_label = true
 RSpec.configure do |config|
+  config.before(:each) do |example|
+    if example.metadata[:type] == :feature
+      Capybara.current_driver = :selenium_headless
+    else
+      Capybara.use_default_driver # presumed to be :rack_test
+    end
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.include SignInHelper, type: :feature
+  config.include Aria, type: :feature
   config.fixture_path = "#{Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

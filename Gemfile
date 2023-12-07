@@ -105,3 +105,5 @@ gem 'pundit', '~> 2.2'
 gem 'fasterer', '~> 0.10.0', group: :development
 
 gem 'capybara', '~> 3.38', group: :test
+
+gem "selenium-webdriver", "~> 4.7", :group => :test
